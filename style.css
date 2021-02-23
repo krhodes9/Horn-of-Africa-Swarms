@@ -1,8 +1,12 @@
-      html,
+html,
       body,
       #viewDiv {
-        padding: 10;
-        margin: 10;
-        height: 700px;
-        width: 700px;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(50,50,50);
+      }
+      #infoDiv {
+        padding: 10px;
       }
