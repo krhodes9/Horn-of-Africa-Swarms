@@ -3,11 +3,16 @@
         "esri/layers/FeatureLayer",
         "esri/layers/GeoJSONLayer",
         "esri/views/MapView",
-        "esri/widgets/Legend",
+         "esri/widgets/Legend",
         "esri/widgets/Expand",
-        "esri/widgets/Home"
-      ], function(Map, FeatureLayer, GeoJSONLayer, MapView, Legend, Expand, Home) {
+        "esri/widgets/Home",
+        "esri/WebMap"
+      ], function(Map, FeatureLayer, GeoJSONLayer, MapView, Legend, Expand, Home, WebMap) {
 
+          var featureLayer = new FeatureLayer({
+          url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/DL_Breeding_Sites/FeatureServer"
+        });
+        
         // Configures clustering on the layer. A cluster radius
         // of 100px indicates an area comprising screen space 100px
         // in length from the center of the cluster
@@ -72,21 +77,20 @@
               color: "orange",
               outline: {
                 color: "rgba(0, 139, 174, 0.5)",
-                width: 5
+                width: 4
               }
             }
           }
         });
 
- 
         const map = new Map({
           basemap: "gray",
-          layers: [layer]
+          layers: [featureLayer, layer]
         });
-
+               
         var view = new MapView({
           container: "viewDiv",
-          map: map,
+          map: map, 
           center: [20.7832, 20.5085],
           scale: 33033300
         });
@@ -116,5 +120,6 @@
           let fr = layer.featureReduction;
           layer.featureReduction = fr && fr.type === "cluster" ? null : clusterConfig;
           toggleButton.innerText = toggleButton.innerText === "Enable Clustering" ? "Disable Clustering" : "Enable Clustering";
+                  
         });
       });
