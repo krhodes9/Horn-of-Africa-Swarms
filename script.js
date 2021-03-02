@@ -13,9 +13,7 @@
           url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/DL_Breeding_Sites/FeatureServer"
         });
         
-        // Configures clustering on the layer. A cluster radius
-        // of 100px indicates an area comprising screen space 100px
-        // in length from the center of the cluster
+
         const clusterConfig = {
           type: "cluster",
           clusterRadius: "100px",
@@ -54,8 +52,8 @@
           url: "https://opendata.arcgis.com/datasets/b3f84bff1c514484be7f4d65098f9372_0.geojson",
           copyright: "FAO of United Nations",
           featureReduction: clusterConfig,
-          // popupTemplates can still be viewed on
-          // individual features
+        
+
           popupTemplate: {
             title: "Locust Info",
             content: "Number {mag} {type} hit {place} on {time}",
@@ -114,8 +112,6 @@
 
         const toggleButton = document.getElementById("cluster");
 
-        // To turn off clustering on a layer, set the
-        // featureReduction property to null
         toggleButton.addEventListener("click", function(){
           let fr = layer.featureReduction;
           layer.featureReduction = fr && fr.type === "cluster" ? null : clusterConfig;
