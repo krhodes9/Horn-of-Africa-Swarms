@@ -1,4 +1,4 @@
- require([
+  require([
         "esri/Map",
         "esri/layers/FeatureLayer",
         "esri/layers/GeoJSONLayer",
@@ -36,7 +36,7 @@
             },
             symbol: {
               type: "text",
-              color: "#004a5d",
+              color: "white",
               font: {
                 weight: "bold",
                 family: "Noto Sans",
@@ -72,7 +72,7 @@
             symbol: {
               type: "simple-marker",
               size: 4,
-              color: "orange",
+              color: "black",
               outline: {
                 color: "rgba(0, 139, 174, 0.5)",
                 width: 4
