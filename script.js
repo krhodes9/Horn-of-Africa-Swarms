@@ -1,4 +1,4 @@
-  require([
+ require([
         "esri/Map",
         "esri/layers/FeatureLayer",
         "esri/layers/GeoJSONLayer",
@@ -6,14 +6,13 @@
          "esri/widgets/Legend",
         "esri/widgets/Expand",
         "esri/widgets/Home",
-        "esri/WebMap"
+        "esri/WebMap",
       ], function(Map, FeatureLayer, GeoJSONLayer, MapView, Legend, Expand, Home, WebMap) {
 
           var featureLayer = new FeatureLayer({
           url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/DL_Breeding_Sites/FeatureServer"
         });
         
-
         const clusterConfig = {
           type: "cluster",
           clusterRadius: "100px",
@@ -68,7 +67,7 @@
           },
           renderer: {
             type: "simple",
-            field: "mag",
+            field:"",
             symbol: {
               type: "simple-marker",
               size: 4,
@@ -89,15 +88,15 @@
         var view = new MapView({
           container: "viewDiv",
           map: map, 
-          center: [20.7832, 20.5085],
-          scale: 33033300
+          center: [19.7832, 20.5085],
+          scale: 37333333
         });
 
         view.ui.add(new Home({
           view: view
         }), "top-left");
 
-        const legend = new Legend({
+       const legend = new Legend({
           view: view,
           container: "legendDiv"
         });
