@@ -10,7 +10,7 @@
       ], function(Map, FeatureLayer, GeoJSONLayer, MapView, Legend, Expand, Home, WebMap) {
 
           var featureLayer = new FeatureLayer({
-          url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/DL_Breeding_Sites/FeatureServer"
+          url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/East_Africa/FeatureServer"
         });
         
         const clusterConfig = {
@@ -46,9 +46,9 @@
           }]
         }
 
-        const layer = new GeoJSONLayer({
+        var layer = new FeatureLayer({
           title: "Desert Locust Swarms",
-          url: "https://opendata.arcgis.com/datasets/b3f84bff1c514484be7f4d65098f9372_0.geojson",
+          url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Locust_Swarms_East_Africa/FeatureServer",
           copyright: "FAO of United Nations",
           featureReduction: clusterConfig,
         
@@ -71,9 +71,9 @@
             symbol: {
               type: "simple-marker",
               size: 4,
-              color: "black",
+              color: "deeppink",
               outline: {
-                color: "rgba(0, 139, 174, 0.5)",
+                color: "rgba(0, 199, 174, 0.5)",
                 width: 4
               }
             }
@@ -81,15 +81,15 @@
         });
 
         const map = new Map({
-          basemap: "gray",
+          basemap: "dark-gray",
           layers: [featureLayer, layer]
         });
                
         var view = new MapView({
           container: "viewDiv",
           map: map, 
-          center: [19.7832, 20.5085],
-          scale: 37333333
+          center: [37.7832, 5.5085],
+          scale: 9340000
         });
 
         view.ui.add(new Home({
