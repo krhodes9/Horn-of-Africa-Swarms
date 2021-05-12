@@ -1,5 +1,15 @@
-require(["esri/Map", "esri/views/MapView"], function(Map, MapView) {
-        var map = new Map({
+ require([
+        "esri/Map",
+        "esri/layers/FeatureLayer",
+        "esri/layers/GeoJSONLayer",
+        "esri/views/MapView",
+         "esri/widgets/Legend",
+        "esri/widgets/Expand",
+        "esri/widgets/Home",
+        "esri/WebMap",
+      ], function(Map, FeatureLayer, GeoJSONLayer, MapView, Legend, Expand, Home, WebMap) {
+        
+         var map = new Map({
           basemap: "dark-gray"
         });
 
