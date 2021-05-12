@@ -9,9 +9,15 @@
         "esri/WebMap",
       ], function(Map, FeatureLayer, GeoJSONLayer, MapView, Legend, Expand, Home, WebMap) {
         
-        const map = new Map({
+        var featureLayer = new FeatureLayer({
+          url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/East_Africa/FeatureServer/0"
+        });
+  
+  
+        
+       const map = new Map({
           basemap: "dark-gray",
-          layers: []
+          layers: [featureLayer]
         });
                
         var view = new MapView({
