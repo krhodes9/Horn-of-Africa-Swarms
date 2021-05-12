@@ -88,8 +88,8 @@
         var view = new MapView({
           container: "viewDiv",
           map: map, 
-          center: [37.7832, 5.5085],
-          scale: 9340000
+          center: [-89.4012, 43.0731],
+          scale: 134000
         });
 
         view.ui.add(new Home({
