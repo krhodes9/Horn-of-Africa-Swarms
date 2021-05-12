@@ -92,4 +92,30 @@
           center: [45, 9],
           scale: 13340000
         });
+  
+         view.ui.add(new Home({
+          view: view
+        }), "top-left");
+
+       const legend = new Legend({
+          view: view,
+          container: "legendDiv"
+        });
+
+        const infoDiv = document.getElementById("infoDiv");
+        view.ui.add(new Expand({
+          view: view,
+          content: infoDiv,
+          expandIconClass: "esri-icon-layer-list",
+          expanded: false
+        }), "top-left");
+
+        const toggleButton = document.getElementById("cluster");
+
+        toggleButton.addEventListener("click", function(){
+          let fr = layer.featureReduction;
+          layer.featureReduction = fr && fr.type === "cluster" ? null : clusterConfig;
+          toggleButton.innerText = toggleButton.innerText === "Enable Clustering" ? "Disable Clustering" : "Enable Clustering";
+                  
+        }); 
       });
