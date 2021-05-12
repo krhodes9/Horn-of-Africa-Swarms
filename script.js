@@ -12,12 +12,78 @@
         var featureLayer = new FeatureLayer({
           url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/East_Africa/FeatureServer/0"
         });
-  
+      
+     const clusterConfig = {
+          type: "cluster",
+          clusterRadius: "100px",
+          popupTemplate: {
+            content: "This cluster represents {cluster_count} locust swarms.",
+            fieldInfos: [{
+              fieldName: "cluster_count",
+              format: {
+                places: 0,
+                digitSeparator: true
+              }
+            }]
+          },
+          clusterMinSize: "24px",
+          clusterMaxSize: "60px",
+          labelingInfo: [{
+            deconflictionStrategy: "none",
+            labelExpressionInfo: {
+              expression: "Text($feature.cluster_count, '#,###')"
+            },
+            symbol: {
+              type: "text",
+              color: "white",
+              font: {
+                weight: "bold",
+                family: "Noto Sans",
+                size: "12px"
+              }
+            },
+            labelPlacement: "center-center",
+          }]
+        }
+
+        var layer = new FeatureLayer({
+          title: "East Africa Locust Swarms",
+          url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Swarms_East_Africa/FeatureServer/0",
+          copyright: "FAO",
+          featureReduction: clusterConfig,
+        
+
+          popupTemplate: {
+            title: "Locust Info",
+            content: "Number {mag} {type} hit {place} on {time}",
+            fieldInfos: [
+              {
+                fieldName: "time",
+                format: {
+                  dateFormat: "short-date-short-time"
+                }
+              }
+            ]
+          },
+          renderer: {
+            type: "simple",
+            field:"",
+            symbol: {
+              type: "simple-marker",
+              size: 4,
+              color: "deeppink",
+              outline: {
+                color: "rgba(0, 200, 150, 0.4)",
+                width: 3
+              }
+            }
+          }
+        });
   
         
        const map = new Map({
           basemap: "dark-gray",
-          layers: [featureLayer]
+          layers: [featureLayer, layer]
         });
                
         var view = new MapView({
