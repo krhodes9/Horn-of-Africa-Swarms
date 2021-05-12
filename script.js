@@ -9,14 +9,15 @@
         "esri/WebMap",
       ], function(Map, FeatureLayer, GeoJSONLayer, MapView, Legend, Expand, Home, WebMap) {
         
-         var map = new Map({
-          basemap: "dark-gray"
+        const map = new Map({
+          basemap: "dark-gray",
+          layers: []
         });
-
+               
         var view = new MapView({
           container: "viewDiv",
-          map: map,
-          zoom: 10,
-          center: [-90, 38] // longitude, latitude
+          map: map, 
+          center: [45, 9],
+          scale: 13340000
         });
       });
