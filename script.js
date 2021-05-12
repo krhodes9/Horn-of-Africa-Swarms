@@ -10,14 +10,14 @@
       ], function(Map, FeatureLayer, GeoJSONLayer, MapView, Legend, Expand, Home, WebMap) {
 
           var featureLayer = new FeatureLayer({
-          url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/East_Africa/FeatureServer"
+          url: ""https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Madison_WI_City_Wards/FeatureServer"
         });
         
         const clusterConfig = {
           type: "cluster",
           clusterRadius: "100px",
           popupTemplate: {
-            content: "This cluster represents {cluster_count} locust swarms.",
+            content: "This cluster represents {cluster_count} urban trees.",
             fieldInfos: [{
               fieldName: "cluster_count",
               format: {
@@ -46,15 +46,15 @@
           }]
         }
 
-        var layer = new FeatureLayer({
-          title: "Desert Locust Swarms",
-          url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Locust_Swarms_East_Africa/FeatureServer",
-          copyright: "FAO of United Nations",
+     var layer = new FeatureLayer({
+          title: "City of Madison: Urban Trees",
+          url: "https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Madison_Trees/FeatureServer",
+          copyright: "City of Madison, WI",
           featureReduction: clusterConfig,
         
 
           popupTemplate: {
-            title: "Locust Info",
+            title: "Urban Tree Info",
             content: "Number {mag} {type} hit {place} on {time}",
             fieldInfos: [
               {
@@ -71,10 +71,10 @@
             symbol: {
               type: "simple-marker",
               size: 4,
-              color: "deeppink",
+              color: "green",
               outline: {
-                color: "rgba(0, 199, 174, 0.5)",
-                width: 4
+                color: "rgba(300, 0, 0, 0.4)",
+                width: 3
               }
             }
           }
